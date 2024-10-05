@@ -116,8 +116,8 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER, [
-        'Email: info@berkbirkan.com',
-        'API-Key: 68f12985-38f6-43ae-a095-6ba99e1b0298'
+        'Email:  admin@admin.com',
+        'API-Key: 8e5417c9-a630-4922-aff3-6c611e54ca9c'
     ]);
 
     $jsonResponse = curl_exec($curl);
