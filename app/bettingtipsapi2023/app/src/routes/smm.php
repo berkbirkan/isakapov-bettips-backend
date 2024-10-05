@@ -116,12 +116,14 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER, [
-        'Email:  admin@admin.com',
+        'Email: admin@admin.com',
         'API-Key: 8e5417c9-a630-4922-aff3-6c611e54ca9c'
     ]);
 
-    $jsonResponse = curl_exec($curl);
+    $jsonResponse = curl_exec(handle: $curl);
     curl_close($curl);
+
+    return $jsonResponse;
 
     // Veriyi JSON olarak çöz
     $jsonData = json_decode($jsonResponse, true);
