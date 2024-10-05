@@ -107,6 +107,8 @@ function getDeviceOSByDeviceID($user_deviceid) {
         return "android";
     }
 }
+
+
 $app->get('/livescores/list/{app_user_id}', function (Request $request, Response $response, $args) {
     // app_user_id'yi al
     $appUserId = $args['app_user_id'];
@@ -120,21 +122,22 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
         'API-Key: 8e5417c9-a630-4922-aff3-6c611e54ca9c'
     ]);
 
-    $jsonResponse = curl_exec(handle: $curl);
+    // Perform the API request
+    $jsonResponse = curl_exec($curl);
     curl_close($curl);
 
+    // Return the raw JSON response
     return $jsonResponse;
 
     // Veriyi JSON olarak çöz
     $jsonData = json_decode($jsonResponse, true);
-
-   
 
     // JSON verisini düzenleyerek döndür
     $output = array_values($jsonData['football']);
 
     return $response->withJson(['football' => $output]);
 });
+
 
 
 
