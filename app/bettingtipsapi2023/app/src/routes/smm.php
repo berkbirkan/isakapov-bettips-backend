@@ -128,15 +128,7 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
     // Veriyi JSON olarak çöz
     $jsonData = json_decode($jsonResponse, true);
 
-    // app_user_id verisi içerisinde "-" karakteri olup olmadığını kontrol et
-    if (strpos($appUserId, '-') !== false) {
-        // "-" karakteri varsa, FIFA içerikli maçları filtrele
-        foreach ($jsonData['football'] as $key => $match) {
-            if (strpos($match['league']['name'], 'FIFA') !== false) {
-                unset($jsonData['football'][$key]);
-            }
-        }
-    }
+   
 
     // JSON verisini düzenleyerek döndür
     $output = array_values($jsonData['football']);
