@@ -114,7 +114,7 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
     $appUserId = $args['app_user_id'];
 
     // API request setup
-    $url = 'http://playprotips.com/api/live-scores';
+    $url = 'https://playprotips.com/api/live-scores';
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER, [
@@ -144,7 +144,7 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
 
 //Bet List
 $app->get('/bet/list/{app_user_id}', function (Request $request, Response $response, $args) {
-    $url = 'http://playprotips.com/api/betting-tips';
+    $url = 'https://playprotips.com/api/betting-tips';
     $appUserId = $args['app_user_id'];
 
     $device_os = getDeviceOSByDeviceID($appUserId);
@@ -170,10 +170,7 @@ $app->get('/bet/list/{app_user_id}', function (Request $request, Response $respo
     $match_count = 0;
 
     foreach ($data['football'] as $key => &$match) {
-        if (strpos($appUserId, '-') !== false && strpos($match['league']['name'], 'FIFA') !== false) {
-            unset($data['football'][$key]);
-            continue;
-        }
+        
 
         if ($match['result'] === '2') {
             $match_count++;
