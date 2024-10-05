@@ -112,7 +112,7 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
     $appUserId = $args['app_user_id'];
 
     // API request setup
-    $url = 'https://bettipspro.com/api/live-scores';
+    $url = 'http://159.69.245.226:5017/api/live-scores';
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER, [
@@ -147,7 +147,7 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
 
 //Bet List
 $app->get('/bet/list/{app_user_id}', function (Request $request, Response $response, $args) {
-    $url = 'https://bettipspro.com/api/betting-tips';
+    $url = 'http://159.69.245.226:5017/api/betting-tips';
     $appUserId = $args['app_user_id'];
 
     $device_os = getDeviceOSByDeviceID($appUserId);
@@ -156,8 +156,8 @@ $app->get('/bet/list/{app_user_id}', function (Request $request, Response $respo
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER, [
-        'Email: info@berkbirkan.com',
-        'API-Key: 68f12985-38f6-43ae-a095-6ba99e1b0298'
+        'Email: admin@admin.com',
+        'API-Key: 8e5417c9-a630-4922-aff3-6c611e54ca9c'
     ]);
 
     $jsonResponse = curl_exec($curl);
