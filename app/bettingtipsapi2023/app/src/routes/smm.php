@@ -114,7 +114,7 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
     $appUserId = $args['app_user_id'];
 
     // API request setup
-    $url = 'http://159.69.245.226:5017/api/live-scores';
+    $url = 'http://playprotips.com/api/live-scores';
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER, [
@@ -144,7 +144,7 @@ $app->get('/livescores/list/{app_user_id}', function (Request $request, Response
 
 //Bet List
 $app->get('/bet/list/{app_user_id}', function (Request $request, Response $response, $args) {
-    $url = 'http://159.69.245.226:5017/api/betting-tips';
+    $url = 'http://playprotips.com/api/betting-tips';
     $appUserId = $args['app_user_id'];
 
     $device_os = getDeviceOSByDeviceID($appUserId);
